@@ -153,7 +153,7 @@ export class ClashConfigBuilder extends BaseConfigBuilder {
                     cipher: proxy.security,
                     tls: proxy.tls?.enabled || false,
                     servername: proxy.tls?.server_name || '',
-                    'skip-cert-verify': true,
+                    'skip-cert-verify': !!proxy.tls?.insecure,
                     network: proxy.transport?.type || proxy.network || 'tcp',
                     'ws-opts': proxy.transport?.type === 'ws'
                         ? {
